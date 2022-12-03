@@ -46,4 +46,18 @@ def login(request):
 
                 return response
             return render(request, 'users/login.html', context)
+def login_detail(request, id):
+    return HttpResponse('user id는 + str(id') + '입니다.')
+
+def index(request):
+    return render(request, 'index.html')
+
+def logout(request):
+    response = redirect('pages:index')
+    response.delete_cookie('is_login')
+    response.delete_cookie('username')
+    response.delete_cookie('password')
+
+    return response
+
             
